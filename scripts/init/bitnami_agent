@@ -1,0 +1,12 @@
+#!/bin/sh
+# 
+# Bitnami Agent
+# Copyright 2015 Bitnami.com All Rights Reserved
+#
+
+if [ -f /opt/bitnami/scripts/bitnami-agent/bitnami-agent.bin ] ; then
+  /opt/bitnami/bnagent/bin/bnagent.bin -D --run
+elif [ -f /opt/bitnami/stats/agent.bin ] ; then 
+  . /opt/bitnami/scripts/init/functions
+  run_once_per_instance initialize_agent /opt/bitnami/stats/initialize.sh
+fi
